@@ -10,7 +10,12 @@
     let humanScore = 0;
     let computerScore = 0;
     let humanSelection = getHumanChoice();
+   
     let computersSelection = getComputersChoice();
+
+    /*function resetSelection() {
+        humanChoice = null;
+    }*/
 
     function getHumanChoice() {
         let humanChoice = prompt('rock, paper, or scissors?');
@@ -29,6 +34,7 @@
         }
         alert('The computer has chosen ' + computersChoice + '.');
         return computersChoice;
+        computersChoice = Math.floor(Math.random()*3)+1;
     }
     function playRound(humanChoice, computersChoice) {
         if (humanChoice == 'rock' && computersChoice == 'scissors') {
@@ -52,6 +58,8 @@
         } else {
             alert('Tie!');
         }
+    getHumanChoice();
+    getComputersChoice();
     }
 
     function playGame() {
@@ -69,12 +77,16 @@
         }
         playRound(humanSelection, computersSelection);
         showScore();
+        alert('Round 2');
         playRound(humanSelection, computersSelection);
         showScore();
+        alert('Round 3');
         playRound(humanSelection, computersSelection);
         showScore();
+        alert('Round 4')
         playRound(humanSelection, computersSelection);
         showScore();
+        alert('Round 5')
         playRound(humanSelection, computersSelection);
         showScore();
         showWinner();
