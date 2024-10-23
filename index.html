@@ -38,17 +38,31 @@ function playRound(humanChoice, computersChoice) {
         alert('You win!');
     } else if (computersChoice == 'rock' && humanChoice == 'scissors') {
         computerScore ++;
-        alert('You lose!');
+        alert('Computer wins!');
     } else if (computersChoice == 'paper' && humanChoice == 'rock')  {
         computerScore ++;
-        alert('You lose!');
+        alert('Computer wins!');
     } else if (computersChoice == 'scissors' && humanChoice == 'paper')  {
-        computersScore ++;
-        alert('You lose!');
+        computerScore ++;
+        alert('Computer wins!');
     } else {
         alert('Tie!');
     }
 }
+
+//Displays who wins
+function showWinner() {
+    if (humanScore > computerScore){
+        alert('You win the game!');
+    } else {
+        alert('The computer has won the game!');
+    }
+}
+//Score tracker
+function showScore() {
+    alert("You: " + humanScore + " | " +"Computer: " + computerScore);
+}
+
 let humanScore = 0;
 let computerScore = 0;
 let humanSelection = getHumanChoice();
