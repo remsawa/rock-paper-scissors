@@ -7,67 +7,81 @@
 </head>
 <body>
   <script>
+    let humanScore = 0;
+    let computerScore = 0;
+    let humanSelection = getHumanChoice();
+    let computersSelection = getComputersChoice();
 
-function getHumanChoice() {
-    let humanChoice = prompt('rock, paper, or scissors?');
-    alert("You've chosen "+ humanChoice + ".");
-    return humanChoice;
-}
-function getComputersChoice() {
-    //Gets a random number 1~3
-    let computersChoice = Math.floor(Math.random()*3)+1;
-    if (computersChoice == 1) {
-        computersChoice = 'rock';
-    } else if (computersChoice == 2) {
-        computersChoice = 'paper';
-    } else if (computersChoice == 3) {
-        computersChoice = 'scissors';
+    function getHumanChoice() {
+        let humanChoice = prompt('rock, paper, or scissors?');
+        alert("You've chosen "+ humanChoice + ".");
+        return humanChoice;
     }
-    alert('The computer has chosen ' + computersChoice + '.');
-    return computersChoice;
-}
-function playRound(humanChoice, computersChoice) {
-    if (humanChoice == 'rock' && computersChoice == 'scissors') {
-        humanScore ++;
-        alert('You win!');
-    } else if (humanChoice == 'paper' && computersChoice == 'rock')  {
-        humanScore ++;
-        alert('You win!');
-    } else if (humanChoice == 'scissors' && computersChoice == 'paper')  {
-        humanScore++;
-        alert('You win!');
-    } else if (computersChoice == 'rock' && humanChoice == 'scissors') {
-        computerScore ++;
-        alert('Computer wins!');
-    } else if (computersChoice == 'paper' && humanChoice == 'rock')  {
-        computerScore ++;
-        alert('Computer wins!');
-    } else if (computersChoice == 'scissors' && humanChoice == 'paper')  {
-        computerScore ++;
-        alert('Computer wins!');
-    } else {
-        alert('Tie!');
+    function getComputersChoice() {
+        //Gets a random number 1~3
+        let computersChoice = Math.floor(Math.random()*3)+1;
+        if (computersChoice == 1) {
+            computersChoice = 'rock';
+        } else if (computersChoice == 2) {
+            computersChoice = 'paper';
+        } else if (computersChoice == 3) {
+            computersChoice = 'scissors';
+        }
+        alert('The computer has chosen ' + computersChoice + '.');
+        return computersChoice;
     }
-}
+    function playRound(humanChoice, computersChoice) {
+        if (humanChoice == 'rock' && computersChoice == 'scissors') {
+            humanScore ++;
+            alert('You win!');
+        } else if (humanChoice == 'paper' && computersChoice == 'rock')  {
+            humanScore ++;
+            alert('You win!');
+        } else if (humanChoice == 'scissors' && computersChoice == 'paper')  {
+            humanScore++;
+            alert('You win!');
+        } else if (computersChoice == 'rock' && humanChoice == 'scissors') {
+            computerScore ++;
+            alert('Computer wins!');
+        } else if (computersChoice == 'paper' && humanChoice == 'rock')  {
+            computerScore ++;
+            alert('Computer wins!');
+        } else if (computersChoice == 'scissors' && humanChoice == 'paper')  {
+            computerScore ++;
+            alert('Computer wins!');
+        } else {
+            alert('Tie!');
+        }
+    }
 
-//Displays who wins
-function showWinner() {
-    if (humanScore > computerScore){
-        alert('You win the game!');
-    } else {
-        alert('The computer has won the game!');
+    function playGame() {
+        //Displays who wins
+        function showWinner() {
+            if (humanScore > computerScore){
+                alert('You win the game!');
+            } else {
+                alert('The computer has won the game!');
+            }
+        }
+        //Score tracker
+        function showScore() {
+            alert("You: " + humanScore + " | " +"Computer: " + computerScore);
+        }
+        playRound(humanSelection, computersSelection);
+        showScore();
+        playRound(humanSelection, computersSelection);
+        showScore();
+        playRound(humanSelection, computersSelection);
+        showScore();
+        playRound(humanSelection, computersSelection);
+        showScore();
+        playRound(humanSelection, computersSelection);
+        showScore();
+        showWinner();
     }
-}
-//Score tracker
-function showScore() {
-    alert("You: " + humanScore + " | " +"Computer: " + computerScore);
-}
+    playGame();
 
-let humanScore = 0;
-let computerScore = 0;
-let humanSelection = getHumanChoice();
-let computersSelection = getComputersChoice();
-playRound(humanSelection, computersSelection);
+    
   </script>
 </body>
 </html>
