@@ -9,78 +9,98 @@
   <script>
     let humanScore = 0;
     let computerScore = 0;
-    let humanSelection = getHumanChoice();
-    let computersSelection = getComputersChoice();
+    let score = humanScore+"|"+computerScore;
+    //Score tracker
+    function showScore() {
+    alert("You: " + humanScore + " | " +"Computer: " + computerScore);
+    }
 
-    function getHumanChoice() {
-        let humanChoice = prompt('rock, paper, or scissors?');
-        alert("You've chosen "+ humanChoice + ".");
-        return humanChoice;
-    }
-    function getComputersChoice() {
-        //Gets a random number 1~3
-        let computersChoice = Math.floor(Math.random()*3)+1;
-        if (computersChoice == 1) {
-            computersChoice = 'rock';
-        } else if (computersChoice == 2) {
-            computersChoice = 'paper';
-        } else if (computersChoice == 3) {
-            computersChoice = 'scissors';
+    //Plays one round of the game
+    function playRound() {
+        //Gets player's choice
+        function getHumanChoice() {
+            let humanSelection = prompt('rock, paper, or scissors?');
+            alert("You've chosen "+ humanSelection + ".");
+            return humanSelection;
         }
-        alert('The computer has chosen ' + computersChoice + '.');
-        return computersChoice;
-    }
-    function playRound(humanChoice, computersChoice) {
-        if (humanChoice == 'rock' && computersChoice == 'scissors') {
+        //Gets the computer's choice
+        function getComputerChoice() {
+            //Picks a random number 1~3
+            let computerSelection = Math.floor(Math.random()*3)+1;
+            if (computerSelection == 1) {
+                computerSelection = 'rock';
+            } else if (computerSelection == 2) {
+                computerSelection = 'paper';
+            } else if (computerSelection == 3) {
+                computerSelection = 'scissors';
+            }
+            alert('The computer has chosen ' + computerSelection + '.');
+            return computerSelection;
+        }
+
+        let humanSelection = getHumanChoice();
+        let computerSelection = getComputerChoice();
+
+        //Rock, paper, scissors game mechanics
+        if (humanSelection == 'rock' && computerSelection == 'scissors') {
             humanScore ++;
             alert('You win!');
-        } else if (humanChoice == 'paper' && computersChoice == 'rock')  {
+        } else if (humanSelection == 'paper' && computerSelection == 'rock')  {
             humanScore ++;
             alert('You win!');
-        } else if (humanChoice == 'scissors' && computersChoice == 'paper')  {
+        } else if (humanSelection == 'scissors' && computerSelection == 'paper')  {
             humanScore++;
             alert('You win!');
-        } else if (computersChoice == 'rock' && humanChoice == 'scissors') {
+        } else if (computerSelection == 'rock' && humanSelection == 'scissors') {
             computerScore ++;
             alert('Computer wins!');
-        } else if (computersChoice == 'paper' && humanChoice == 'rock')  {
+        } else if (computerSelection == 'paper' && humanSelection == 'rock')  {
             computerScore ++;
             alert('Computer wins!');
-        } else if (computersChoice == 'scissors' && humanChoice == 'paper')  {
+        } else if (computerSelection == 'scissors' && humanSelection == 'paper')  {
             computerScore ++;
             alert('Computer wins!');
-        } else {
+        } else if ( humanSelection == computerSelection){
             alert('Tie!');
         }
     }
 
+    //Runs five rounds of playRound
     function playGame() {
         //Displays who wins
         function showWinner() {
             if (humanScore > computerScore){
                 alert('You win the game!');
+            } else if (humanScore == computerScore){
+                alert("It's a draw!");
             } else {
                 alert('The computer has won the game!');
             }
+
         }
-        //Score tracker
-        function showScore() {
-            alert("You: " + humanScore + " | " +"Computer: " + computerScore);
-        }
-        playRound(humanSelection, computersSelection);
+        playRound();
         showScore();
-        playRound(humanSelection, computersSelection);
+
+        alert('Round 2');
+        playRound();
         showScore();
-        playRound(humanSelection, computersSelection);
+
+        alert('Round 3');
+        playRound();
         showScore();
-        playRound(humanSelection, computersSelection);
+
+        alert('Round 4')
+        playRound();
         showScore();
-        playRound(humanSelection, computersSelection);
+
+        alert('Round 5');
+        playRound();
         showScore();
+
         showWinner();
     }
-    playGame();
 
+    playGame();
     
   </script>
 </body>
