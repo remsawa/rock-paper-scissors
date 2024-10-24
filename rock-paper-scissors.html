@@ -9,6 +9,7 @@
   <script>
     let humanScore = 0;
     let computerScore = 0;
+<<<<<<< HEAD
     let score = humanScore+"|"+computerScore;
     //Score tracker
     function showScore() {
@@ -43,6 +44,37 @@
 
         //Rock, paper, scissors game mechanics
         if (humanSelection == 'rock' && computerSelection == 'scissors') {
+=======
+    let humanSelection = getHumanChoice();
+   
+    let computersSelection = getComputersChoice();
+
+    /*function resetSelection() {
+        humanChoice = null;
+    }*/
+
+    function getHumanChoice() {
+        let humanChoice = prompt('rock, paper, or scissors?');
+        alert("You've chosen "+ humanChoice + ".");
+        return humanChoice;
+    }
+    function getComputersChoice() {
+        //Gets a random number 1~3
+        let computersChoice = Math.floor(Math.random()*3)+1;
+        if (computersChoice == 1) {
+            computersChoice = 'rock';
+        } else if (computersChoice == 2) {
+            computersChoice = 'paper';
+        } else if (computersChoice == 3) {
+            computersChoice = 'scissors';
+        }
+        alert('The computer has chosen ' + computersChoice + '.');
+        return computersChoice;
+        computersChoice = Math.floor(Math.random()*3)+1;
+    }
+    function playRound(humanChoice, computersChoice) {
+        if (humanChoice == 'rock' && computersChoice == 'scissors') {
+>>>>>>> 533cf839b567658cf13b73b1560e3f29e4061941
             humanScore ++;
             alert('You win!');
         } else if (humanSelection == 'paper' && computerSelection == 'rock')  {
@@ -63,6 +95,8 @@
         } else if ( humanSelection == computerSelection){
             alert('Tie!');
         }
+    getHumanChoice();
+    getComputersChoice();
     }
 
     //Runs five rounds of playRound
@@ -80,6 +114,7 @@
         }
         playRound();
         showScore();
+<<<<<<< HEAD
 
         alert('Round 2');
         playRound();
@@ -95,6 +130,19 @@
 
         alert('Round 5');
         playRound();
+=======
+        alert('Round 2');
+        playRound(humanSelection, computersSelection);
+        showScore();
+        alert('Round 3');
+        playRound(humanSelection, computersSelection);
+        showScore();
+        alert('Round 4')
+        playRound(humanSelection, computersSelection);
+        showScore();
+        alert('Round 5')
+        playRound(humanSelection, computersSelection);
+>>>>>>> 533cf839b567658cf13b73b1560e3f29e4061941
         showScore();
 
         showWinner();
