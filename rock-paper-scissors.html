@@ -6,7 +6,30 @@
   <title>Document</title>
 </head>
 <body>
+    <button id='rockbtn'>Rock</button>
+    <button id='paperbtn'>Paper</button>
+    <button id='scissorsbtn'>Scissors</button>
   <script>
+    let rock = document.querySelector('#rockbtn');
+    let paper = document.querySelector('#paperbtn');
+    let scissors = document.querySelector('#scissorsbtn');
+
+    //rps buttons
+    rock.addEventListener('click', function(e){
+        alert('Rock');
+        playRound();
+    });
+
+    paper.addEventListener('click', function(e){
+        alert('Paper');
+        playRound();
+
+    });
+    scissors.addEventListener('click', function(e){
+        alert('Scissors');
+        playRound();
+    });
+
     let humanScore = 0;
     let computerScore = 0;
     let score = humanScore+"|"+computerScore;
@@ -71,24 +94,6 @@
                 alert('The computer has won the game!');
             }
         }
-        playRound();
-        showScore();
-
-        alert('Round 2');
-        playRound();
-        showScore();
-
-        alert('Round 3');
-        playRound();
-        showScore();
-
-        alert('Round 4')
-        playRound();
-        showScore();
-
-        alert('Round 5');
-        playRound();
-        showScore();
 
         showWinner();
     }
